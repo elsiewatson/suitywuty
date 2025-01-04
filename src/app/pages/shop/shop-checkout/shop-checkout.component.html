@@ -1,0 +1,197 @@
+<app-navbar [navClass]="'defaultscroll is-sticky'"></app-navbar>
+
+<section
+  class="relative table w-full py-20 lg:py-24 bg-gray-50 dark:bg-slate-800"
+>
+  <div class="container relative">
+    <div class="grid grid-cols-1 mt-14">
+      <h3 class="text-3xl leading-normal font-semibold">Checkout</h3>
+    </div>
+    <!--end grid-->
+
+    <div class="relative mt-3">
+      <ul class="tracking-[0.5px] mb-0 inline-block">
+        <li
+          class="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out hover:text-orange-500"
+        >
+          <a routerLink="/">Home</a>
+        </li>
+        <li
+          class="inline-block text-base text-slate-950 dark:text-white mx-0.5 ltr:rotate-0 rtl:rotate-180"
+        >
+          <i class="mdi mdi-chevron-right"></i>
+        </li>
+        <li
+          class="inline-block uppercase text-[13px] font-bold text-orange-500"
+          aria-current="page"
+        >
+          Checkout
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!--end container-->
+</section>
+<section class="relative md:py-24 py-16">
+  <div class="container relative">
+    <div class="grid lg:grid-cols-12 md:grid-cols-2 grid-cols-1 gap-6">
+      <div class="lg:col-span-12">
+        <div class="p-6 rounded-md shadow dark:shadow-gray-800">
+          <h3 class="text-xl leading-normal font-semibold">Billing address</h3>
+
+          <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+            <div class="grid lg:grid-cols-12 grid-cols-1 mt-6 gap-5">
+              <!-- First Name -->
+              <div class="lg:col-span-6">
+                <label class="form-label font-semibold">
+                  First Name: <span class="text-red-600">*</span>
+                </label>
+                <input
+                  type="text"
+                  formControlName="firstname"
+                  class="w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0 mt-2"
+                  placeholder="First Name"
+                />
+                <div
+                  *ngIf="
+                    f['firstname'].invalid &&
+                    (f['firstname'].touched || isSubmitting)
+                  "
+                >
+                  <small class="text-red-600">
+                    First name is required, must be at least 2 characters long,
+                    and only contain letters.
+                  </small>
+                </div>
+              </div>
+
+              <!-- Last Name -->
+              <div class="lg:col-span-6">
+                <label class="form-label font-semibold">
+                  Last Name: <span class="text-red-600">*</span>
+                </label>
+                <input
+                  type="text"
+                  formControlName="lastname"
+                  class="w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0 mt-2"
+                  placeholder="Last Name"
+                />
+                <div
+                  *ngIf="
+                    f['lastname'].invalid &&
+                    (f['lastname'].touched || isSubmitting)
+                  "
+                >
+                  <small class="text-red-600">
+                    Last name is required, must be at least 2 characters long,
+                    and only contain letters.
+                  </small>
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="lg:col-span-12">
+                <label class="form-label font-semibold">
+                  Your Email: <span class="text-red-600">*</span>
+                </label>
+                <input
+                  type="email"
+                  formControlName="email"
+                  class="w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0 mt-2"
+                  placeholder="Email"
+                />
+                <div
+                  *ngIf="
+                    f['email'].invalid && (f['email'].touched || isSubmitting)
+                  "
+                >
+                  <small class="text-red-600"
+                    >Please enter a valid email address.</small
+                  >
+                </div>
+              </div>
+
+              <!-- Address -->
+              <div class="lg:col-span-12">
+                <label class="form-label font-semibold">
+                  Address: <span class="text-red-600">*</span>
+                </label>
+                <input
+                  type="text"
+                  formControlName="address"
+                  class="w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0 mt-2"
+                  placeholder="Address"
+                />
+                <div
+                  *ngIf="
+                    f['address'].invalid &&
+                    (f['address'].touched || isSubmitting)
+                  "
+                >
+                  <small class="text-red-600">Address is required.</small>
+                </div>
+              </div>
+
+              <!-- Address 2 -->
+              <div class="lg:col-span-6">
+                <label class="form-label font-semibold">Address 2:</label>
+                <input
+                  type="text"
+                  formControlName="address2"
+                  class="w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0 mt-2"
+                  placeholder="Address 2"
+                />
+                <div
+                  *ngIf="
+                    f['address2'].invalid &&
+                    (f['address2'].touched || isSubmitting)
+                  "
+                >
+                  <small class="text-red-600">Address is required.</small>
+                </div>
+              </div>
+
+              <!-- Zip Code -->
+              <div class="lg:col-span-6">
+                <label class="form-label font-semibold">
+                  Zip Code: <span class="text-red-600">*</span>
+                </label>
+                <input
+                  type="text"
+                  formControlName="zipcode"
+                  class="w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0 mt-2"
+                  placeholder="ZIP Code"
+                />
+                <div
+                  *ngIf="
+                    f['zipcode'].invalid &&
+                    (f['zipcode'].touched || isSubmitting)
+                  "
+                >
+                  <small class="text-red-600">
+                    Please enter a valid 4-digit ZIP code.
+                  </small>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <input
+                type="submit"
+                class="py-2 px-5 inline-block tracking-wide align-middle duration-500 text-base text-center bg-orange-500 text-white rounded-md w-full"
+                value="{{ isSubmitting ? 'Renting...' : 'Rent' }}"
+              />
+            </div>
+            <!-- Message Status -->
+            <div *ngIf="messageStatus" class="mt-4 text-green-600">
+              {{ messageStatus }}
+            </div>
+          </form>
+        </div>
+      </div>
+      <!--end col-->
+    </div>
+    <!--end grid-->
+  </div>
+  <!--end container-->
+</section>

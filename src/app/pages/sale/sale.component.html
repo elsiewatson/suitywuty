@@ -1,0 +1,97 @@
+<div class="tagline bg-white dark:bg-slate-900">
+    <div class="container relative">                
+        <div class="grid grid-cols-1">
+            <div class="text-center">
+                <h6 class="text-slate-900 dark:text-white font-semibold">Refer a friend & get $50 in credits each 🎉</h6>
+            </div>
+        </div>
+    </div><!--end container-->
+</div>
+<app-navbar [navClass]="'defaultscroll is-sticky tagline-height'" [navLight]="true"></app-navbar>
+<section class="relative table w-full items-center pt-36 pb-52 bg-orange-600 bg-center bg-no-repeat bg-cover" style="background-image: url('assets/images/hero/bg-shape.png');">
+    <div class="container relative">
+        <div class="grid grid-cols-1 text-center mt-10">
+            <h3 class="md:text-7xl text-5xl md:leading-normal leading-normal tracking-wide font-bold uppercase text-white">Sale Outlet <br> Up to 75% Off</h3>
+            <div class="mt-6">
+                <a class="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-center bg-white text-orange-500 rounded-md">Offer Grab Now</a>
+            </div>
+        </div><!--end grid-->
+    </div><!--end container-->
+</section>
+<section class="relative md:py-24 py-16">
+    <div class="container relative">
+        <div class="grid grid-cols-1 justify-center">
+            <div class="relative z-2 duration-500 sm:-mt-[200px] -mt-[140px] m-0">
+                <div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-6">
+                    <div *ngFor="let item of saleData" class="relative overflow-hidden rounded-md text-center shadow-md">
+                        <div class="p-6 bg-orange-500">
+                            <span class="bg-white text-orange-500 font-bold px-2.5 py-0.5 rounded-full h-5">{{item.off}}</span>
+
+                            <h5 class="text-white font-medium mt-2">Sale {{item.off}}</h5>
+
+                            <p class="text-white/70 mt-2">Use this below code <br> for {{item.off}}</p>
+                        </div>
+
+                        <div class="p-6 bg-white dark:bg-slate-900">
+                            <p class="text-sm font-medium uppercase">Use Code</p>
+                            <h5 class="text-xl font-semibold uppercase mt-1">{{item.code}}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container relative md:mt-24 mt-16">
+        <div class="grid grid-cols-1 justify-center text-center mb-6">
+            <h5 class="font-semibold text-3xl leading-normal mb-4">Top Offers</h5>
+            <p class="text-slate-400 max-w-xl mx-auto">Shop the latest products from the most popular collectionss</p>
+        </div><!--end grid-->
+
+        <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 pt-6 gap-6">
+            <div *ngFor="let item of product | slice : 0 : 8" class="group">
+                <div class="relative overflow-hidden shadow dark:shadow-gray-800 group-hover:shadow-lg group-hover:dark:shadow-gray-800 rounded-md duration-500">
+                    <img [src]="item.image" class="group-hover:scale-110 duration-500" alt="">
+
+                    <div class="absolute -bottom-20 group-hover:bottom-3 start-3 end-3 duration-500">
+                        <a routerLink="/shop-cart" class="py-2 px-5 inline-block font-semibold tracking-wide align-middle duration-500 text-base text-center bg-slate-900 text-white w-full rounded-md">Add to Cart</a>
+                    </div>
+
+                    <ul class="list-none absolute top-[10px] end-4 opacity-0 group-hover:opacity-100 duration-500 space-y-1">
+                        <li><a class="size-10 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-center rounded-full bg-white text-slate-900 hover:bg-slate-900 hover:text-white shadow"><i data-feather="heart" class="size-4"></i></a></li>
+                        <li class="mt-1"><a routerLink="/shop-item-detail" class="size-10 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-center rounded-full bg-white text-slate-900 hover:bg-slate-900 hover:text-white shadow"><i data-feather="eye" class="size-4"></i></a></li>
+                        <li class="mt-1"><a class="size-10 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-center rounded-full bg-white text-slate-900 hover:bg-slate-900 hover:text-white shadow"><i data-feather="bookmark" class="size-4"></i></a></li>
+                    </ul>
+
+                    <ul *ngIf="item.tag" class="list-none absolute top-[10px] start-4">
+                        <li><a class="bg-orange-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded h-5">{{item.tagText}}</a></li>
+                    </ul>
+
+                    <ul *ngIf="item.tagText === 'New' " class="list-none absolute top-[10px] start-4">
+                        <li><a class="bg-red-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded h-5">{{item.tagText}}</a></li>
+                    </ul>
+
+                    <ul *ngIf="item.tagText === 'Featured' "  class="list-none absolute top-[10px] start-4">
+                        <li><a class="bg-emerald-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded h-5">{{item.tagText}}</a></li>
+                    </ul>
+                </div>
+
+                <div class="mt-4">
+                    <a routerLink="/product-detail-one" class="hover:text-orange-500 text-lg font-medium">{{item.name}}</a>
+                    <div class="flex justify-between items-center mt-1">
+                        <p>{{item.desRate}}<del class="text-slate-400">{{item.rate}}</del></p>
+                        <ul class="font-medium text-amber-400 list-none">
+                            <li class="inline"><i class="mdi mdi-star"></i></li>
+                            <li class="inline"><i class="mdi mdi-star"></i></li>
+                            <li class="inline"><i class="mdi mdi-star"></i></li>
+                            <li class="inline"><i class="mdi mdi-star"></i></li>
+                            <li class="inline"><i class="mdi mdi-star"></i></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div><!--end grid-->
+    </div><!--end container-->
+
+    <app-mobile-app></app-mobile-app>
+</section>

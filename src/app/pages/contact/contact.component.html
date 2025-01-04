@@ -1,0 +1,224 @@
+<app-navbar [navClass]="'defaultscroll is-sticky'"></app-navbar>
+<section
+  class="relative table w-full items-center py-36 bg-top bg-no-repeat bg-cover"
+  style="background-image: url('assets/images/hero/pages.jpg')"
+>
+  <div
+    class="absolute inset-0 bg-gradient-to-b from-slate-900/60 via-slate-900/80 to-slate-900"
+  ></div>
+  <div class="container relative">
+    <div class="grid grid-cols-1 pb-8 text-center mt-10">
+      <h3
+        class="mb-3 text-4xl leading-normal tracking-wider font-semibold text-white"
+      >
+        Contact Us
+      </h3>
+    </div>
+    <!--end grid-->
+  </div>
+  <!--end container-->
+
+  <div class="absolute text-center z-10 bottom-5 start-0 end-0 mx-3">
+    <ul class="tracking-[0.5px] mb-0 inline-block">
+      <li
+        class="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out text-white/50 hover:text-white"
+      >
+        <a href="/">Home</a>
+      </li>
+      <li
+        class="inline-block text-base text-white/50 mx-0.5 ltr:rotate-0 rtl:rotate-180"
+      >
+        <i class="mdi mdi-chevron-right"></i>
+      </li>
+      <li
+        class="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out text-white"
+        aria-current="page"
+      >
+        Contact Us
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="relative lg:py-24 py-16">
+  <div class="container">
+    <div class="grid md:grid-cols-12 grid-cols-1 items-center gap-6">
+      <div class="lg:col-span-7 md:col-span-6">
+        <img src="assets/images/contact.svg" alt="" />
+      </div>
+
+      <div class="lg:col-span-5 md:col-span-6">
+        <div class="lg:ms-5">
+          <div
+            class="bg-white dark:bg-slate-900 rounded-md shadow dark:shadow-gray-700 p-6"
+          >
+            <h3 class="mb-6 text-2xl leading-normal font-semibold">
+              Connect with us!
+            </h3>
+
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+              <div class="grid lg:grid-cols-12 grid-cols-1 gap-3">
+                <div class="lg:col-span-6">
+                  <label for="name" class="font-semibold">Your Name:</label>
+                  <input
+                    formControlName="name"
+                    id="name"
+                    type="text"
+                    class="mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0"
+                    placeholder="Name :"
+                  />
+                  <small
+                    class="text-red-600"
+                    *ngIf="f['name'].invalid && f['name'].touched"
+                  >
+                    Name is required.
+                  </small>
+                </div>
+
+                <div class="lg:col-span-6">
+                  <label for="email" class="font-semibold">Your Email:</label>
+                  <input
+                    formControlName="email"
+                    id="email"
+                    type="email"
+                    class="mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0"
+                    placeholder="Email :"
+                  />
+                  <small
+                    class="text-red-600"
+                    *ngIf="f['email'].invalid && f['email'].touched"
+                  >
+                    A valid email is required.
+                  </small>
+                </div>
+
+                <div class="lg:col-span-12">
+                  <label for="subject" class="font-semibold"
+                    >Your Subject:</label
+                  >
+                  <input
+                    formControlName="subject"
+                    id="subject"
+                    class="mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0"
+                    placeholder="Subject :"
+                  />
+                  <small
+                    class="text-red-600"
+                    *ngIf="f['subject'].invalid && f['subject'].touched"
+                  >
+                    Subject is required.
+                  </small>
+                </div>
+
+                <div class="lg:col-span-12">
+                  <label for="comments" class="font-semibold"
+                    >Your Message:</label
+                  >
+                  <textarea
+                    formControlName="comments"
+                    id="comments"
+                    class="mt-2 w-full py-2 px-3 h-28 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0"
+                    placeholder="Message :"
+                  ></textarea>
+                  <small
+                    class="text-red-600"
+                    *ngIf="f['comments'].invalid && f['comments'].touched"
+                  >
+                    Message is required.
+                  </small>
+                </div>
+              </div>
+              <button
+                type="submit"
+                [disabled]="isSubmitting"
+                class="py-2 px-5 inline-block tracking-wide align-middle duration-500 text-base text-center bg-orange-500 text-white rounded-md mt-2"
+              >
+                {{ isSubmitting ? "Sending..." : "Send Message" }}
+              </button>
+              <div *ngIf="messageStatus" class="mt-4 text-green-600">
+                {{ messageStatus }}
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end container-->
+
+  <div class="container lg:mt-24 mt-16">
+    <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-6">
+      <div class="text-center px-6">
+        <div class="relative text-transparent">
+          <div
+            class="size-20 bg-orange-500/5 text-orange-500 rounded-xl text-2xl flex align-middle justify-center items-center mx-auto shadow-sm dark:shadow-gray-800"
+          >
+            <i data-feather="phone"></i>
+          </div>
+        </div>
+
+        <div class="content mt-7">
+          <h5 class="title h5 text-lg font-semibold">Phone</h5>
+          <p class="text-slate-400 mt-3">+852 69856574</p>
+        </div>
+      </div>
+
+      <div class="text-center px-6">
+        <div class="relative text-transparent">
+          <div
+            class="size-20 bg-orange-500/5 text-orange-500 rounded-xl text-2xl flex align-middle justify-center items-center mx-auto shadow-sm dark:shadow-gray-800"
+          >
+            <i data-feather="mail"></i>
+          </div>
+        </div>
+
+        <div class="content mt-7">
+          <h5 class="title h5 text-lg font-semibold">Email</h5>
+          <p class="text-slate-400 mt-3">rent&#64;suitywuty.com</p>
+        </div>
+      </div>
+
+      <div class="text-center px-6">
+        <div class="relative text-transparent">
+          <div
+            class="size-20 bg-orange-500/5 text-orange-500 rounded-xl text-2xl flex align-middle justify-center items-center mx-auto shadow-sm dark:shadow-gray-800"
+          >
+            <i data-feather="map-pin"></i>
+          </div>
+        </div>
+
+        <div class="content mt-7">
+          <h5 class="title h5 text-lg font-semibold">Location</h5>
+          <p class="text-slate-400 mt-3">
+            17 Hau Wong Rd, Kowloon City, Hong Kong
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--end grid-->
+  </div>
+  <!--end container-->
+
+  <div class="container-fluid relative mt-20">
+    <div class="grid grid-cols-1">
+      <div class="w-full leading-[0] border-0">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d335.77144038863537!2d114.18825126502831!3d22.328120790843005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x340400d52aa8db99%3A0xa163cee360130abd!2s17%20Hau%20Wong%20Rd%2C%20Kowloon%20City%2C%20Hong%20Kong!5e0!3m2!1sen!2sin!4v1735213676423!5m2!1sen!2sin"
+          style="border: 0"
+          class="w-full h-[500px]"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+    <!--end grid-->
+  </div>
+</section>
+<!-- <div *ngIf="isModal" class="w-full h-screen bg-slate-900/80 fixed top-0 left-0 bottom-0 right-0 z-999 flex items-center justify-center">
+    <div class="w-full h-full px-5 md:px-40 md-py-20 py-5">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d55431.05581015953!2d-95.461302!3d29.735948000000004!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640c36647a52ab1%3A0x70a301678672cb!2sBriargrove%20Park%2C%20Houston%2C%20TX%2C%20USA!5e0!3m2!1sen!2sin!4v1710322657489!5m2!1sen!2sin" width="100%" height="100%" title="myfram" loading="lazy">
+        </iframe>
+    </div>
+    <button class="text-slate-400 absolute top-[20px] right-[20px]" (click)="onModalClick()">
+        <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="size-5" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+</div> -->

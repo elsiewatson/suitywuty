@@ -1,0 +1,53 @@
+[
+  {
+    "id": 1,
+    "image": "assets/images/shop/black-print-t-shirt.jpg",
+    "tagText": "-40% Off",
+    "name": "Men’s black leather jacket",
+    "desRate": "$16.00",
+    "rate": "$21.00",
+    "url": "/mens-black-leather-jacket",
+    "tag": true
+  },
+  {
+    "id": 2,
+    "image": "assets/images/shop/fashion-shoes-sneaker.jpg",
+    "tagText": "New",
+    "name": "Men’s red and white suit",
+    "desRate": "$16.00",
+    "url": "/mens-red-and-white-suit",
+    "rate": "$21.00"
+  },
+  {
+    "id": 3,
+    "image": "assets/images/shop/men-white-espadrilles-slip-shoes.jpg",
+    "name": "Women’s coffee high neck sweater",
+    "desRate": "$16.00",
+    "url": "/womens-coffee-high-neck-sweater",
+    "rate": "$21.00"
+  },
+  {
+    "id": 4,
+    "image": "assets/images/shop/luxurious-bag.jpg",
+    "name": "Light blue bodycon gown",
+    "desRate": "$16.00",
+    "url": "/light-blue-bodycon-gown",
+    "rate": "$21.00"
+  },
+  {
+    "id": 5,
+    "image": "assets/images/shop/ladies-1.jpg",
+    "name": "Modern sheath dresses",
+    "desRate": "$16.00",
+    "url": "/modern-sheath-dresses",
+    "rate": "$21.00"
+  },
+  {
+    "id": 6,
+    "image": "assets/images/shop/ladies-2.jpg",
+    "name": "Men’s hoodie shirt",
+    "desRate": "$16.00",
+    "url": "/men-hoodie-shirt",
+    "rate": "$21.00"
+  }
+]

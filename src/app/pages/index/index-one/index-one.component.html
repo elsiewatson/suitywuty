@@ -1,0 +1,186 @@
+<app-navbar [navClass]="'defaultscroll is-sticky tagline-height'"></app-navbar>
+
+<section
+  class="relative md:flex table w-full items-center md:h-screen py-36 bg-emerald-500/5 md:bg-top bg-center bg-no-repeat bg-cover"
+  style="background-image: url('assets/images/hero/bg3.png')"
+>
+  <div class="container relative">
+    <div class="grid grid-cols-1 justify-center">
+      <div class="text-center">
+        <!-- <span class="uppercase font-semibold text-lg">New Collection</span> -->
+        <h4
+          class="md:text-6xl text-4xl md:leading-normal leading-normal font-bold my-3"
+        >
+          Rent to shine!
+        </h4>
+        <p class="text-lg">
+          Be it a gala, party, or corporate event, <br />we’ve got you covered
+          for every occasion!
+        </p>
+
+        <div class="mt-6">
+          <a
+            href="/shop"
+            class="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-center bg-slate-900 dark:bg-orange-500 text-white rounded-md"
+            >Shop Now <i class="mdi mdi-arrow-right"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="relative md:py-24 py-16">
+  <div class="container relative">
+    <div class="grid grid-cols-1 justify-center text-center mb-6">
+      <h5 class="font-semibold text-3xl leading-normal mb-4">
+        Shop By Categories
+      </h5>
+      <p class="text-slate-400 max-w-xl mx-auto">
+        Rent any day, every day, from a wide range of categories.
+      </p>
+    </div>
+    <!--end grid-->
+
+    <div
+      class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-2 pt-6 gap-6"
+    >
+      <a
+        style="cursor: default"
+        *ngFor="let item of collectiondata"
+        class="text-center hover:text-orange-500"
+      >
+        <img
+          [src]="item.image"
+          class="rounded-full shadow dark:shadow-gray-800"
+          alt=""
+        />
+        <span class="text-xl font-medium mt-3 block">{{ item.name }}</span>
+      </a>
+    </div>
+    <!--end grid-->
+  </div>
+  <!--end container-->
+
+  <div class="container relative md:mt-24 mt-16">
+    <div class="grid grid-cols-1 justify-center text-center mb-6">
+      <h5 class="font-semibold text-3xl leading-normal mb-4">
+        Trending hot sellers!
+      </h5>
+      <p class="text-slate-400 max-w-xl mx-auto">
+        Clothes so good…you will forget to return!
+      </p>
+    </div>
+    <!--end grid-->
+
+    <div
+      class="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 pt-6 gap-6"
+    >
+      <div *ngFor="let item of product | slice : 0 : 12" class="group">
+        <div
+          class="relative overflow-hidden shadow dark:shadow-gray-800 group-hover:shadow-lg group-hover:dark:shadow-gray-800 rounded-md duration-500"
+        >
+          <img
+            [src]="item.image"
+            class="group-hover:scale-110 duration-500"
+            alt=""
+          />
+        </div>
+
+        <div class="mt-4">
+          <a
+            [routerLink]="item.url"
+            class="hover:text-orange-500 text-lg font-medium"
+            >{{ item.name }}</a
+          >
+          <!-- <div class="flex justify-between items-center mt-1">
+            <p>
+              {{ item.desRate
+              }}<del class="text-slate-400">{{ item.rate }}</del>
+            </p>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <!--end grid-->
+  </div>
+  <!--end container-->
+
+  <div class="container-fluid relative md:mt-24 mt-16">
+    <div class="grid grid-cols-1">
+      <div
+        class="relative overflow-hidden py-24 px-4 md:px-10 bg-orange-600 bg-center bg-no-repeat bg-cover"
+        style="background-image: url('assets/images/hero/bg3.png')"
+      >
+        <div
+          class="absolute inset-0 bg-center bg-no-repeat bg-cover"
+          style="background-image: url('assets/images/hero/pages.jpg')"
+        ></div>
+        <div class="grid grid-cols-1 justify-center text-center relative z-1">
+          <h3
+            class="text-4xl leading-normal tracking-wide font-bold text-white"
+          >
+            Elegant dresses at half the <br />cost- Rent now!
+          </h3>
+          <div class="mt-4">
+            <a
+              routerLink="/about"
+              class="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-center bg-white text-orange-500 rounded-md"
+            >
+              Read More</a
+            >
+          </div>
+        </div>
+        <!--end grid-->
+      </div>
+    </div>
+  </div>
+  <!--end container-->
+
+  <div class="container relative md:mt-24 mt-16">
+    <div class="grid items-end md:grid-cols-2 mb-6">
+      <div class="md:text-start text-center">
+        <h5 class="font-semibold text-3xl leading-normal mb-4">Latest Blogs</h5>
+        <p class="text-slate-400 max-w-xl">Read our latest blogs</p>
+      </div>
+
+      <div class="md:text-end">
+        <a
+          routerLink="/blogs"
+          class="text-slate-400 hover:text-orange-500 hidden md:block"
+          >See More <i class="mdi mdi-arrow-right"></i
+        ></a>
+      </div>
+    </div>
+    <!--end grid-->
+    <div>
+      <div class="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-6">
+        <div
+          *ngFor="let item of blogData"
+          class="group relative overflow-hidden"
+        >
+          <div
+            class="relative overflow-hidden rounded-md shadow dark:shadow-gray-800"
+          >
+            <img
+              [src]="item.image"
+              class="group-hover:scale-110 duration-500"
+              alt=""
+            />
+          </div>
+
+          <div class="mt-6">
+            <a
+              [routerLink]="item.url"
+              class="title text-lg font-semibold hover:text-orange-500 duration-500 ease-in-out"
+              >{{ item.title }}</a
+            >
+            <p class="text-slate-400 mt-2">{{ item.desc }}</p>
+          </div>
+        </div>
+      </div>
+      <!--end grid-->
+    </div>
+  </div>
+  <!--end container-->
+</section>
