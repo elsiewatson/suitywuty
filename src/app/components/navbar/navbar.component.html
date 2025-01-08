@@ -17,8 +17,18 @@
     <ng-container *ngIf="navLight === true; else elseTemplate">
       <a class="logo" href="/">
         <div class="inline-block dark:hidden">
-          <img src="assets/images/logo-dark.png" class="l-dark" alt="" />
-          <img src="assets/images/logo-light.png" class="l-light" alt="" />
+          <img
+            src="assets/images/logo-dark.png"
+            class="l-dark"
+            alt=""
+            style="height: 26px !important"
+          />
+          <img
+            src="assets/images/logo-light.png"
+            class="l-light"
+            alt=""
+            style="height: 26px !important"
+          />
         </div>
         <img
           src="assets/images/logo-white.png"
@@ -34,11 +44,13 @@
             src="assets/images/logo-dark.png"
             class="h-[22px] inline-block dark:hidden"
             alt=""
+            style="height: 26px !important"
           />
           <img
             src="assets/images/logo-white.png"
             class="h-[22px] hidden dark:inline-block"
             alt=""
+            style="height: 26px !important"
           />
         </div>
       </a>

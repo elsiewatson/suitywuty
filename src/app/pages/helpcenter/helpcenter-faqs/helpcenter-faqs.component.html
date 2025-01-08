@@ -1,118 +1,263 @@
-<app-navbar [ngClass]="'defaultscroll is-sticky'" [navLight]="true"></app-navbar>
+<app-navbar
+  [ngClass]="'defaultscroll is-sticky'"
+  [navLight]="true"
+></app-navbar>
 
-<section class="relative table w-full py-36 bg-center bg-no-repeat bg-cover" style="background-image: url('assets/images/hero/pages.jpg');">
-    <div class="absolute inset-0 bg-black opacity-80"></div>
-    <div class="container relative">
-        <div class="grid grid-cols-1 pb-8 text-center mt-10">
-            <h3 class="text-4xl leading-normal tracking-wider font-semibold text-white">Frequently Asked Questions</h3>
-
-        </div><!--end grid-->
-    </div><!--end container-->
-    
-    <div class="absolute text-center z-10 bottom-5 start-0 end-0 mx-3">
-        <ul class="tracking-[0.5px] mb-0 inline-block">
-            <li class="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out text-white/50 hover:text-white"><a routerLink="/">Cartzio</a></li>
-            <li class="inline-block text-base text-white/50 mx-0.5 ltr:rotate-0 rtl:rotate-180"><i class="mdi mdi-chevron-right"></i></li>
-            <li class="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out text-white/50 hover:text-white"><a routerLink="/helpcenter">Helpcenter</a></li>
-            <li class="inline-block text-base text-white/50 mx-0.5 ltr:rotate-0 rtl:rotate-180"><i class="mdi mdi-chevron-right"></i></li>
-            <li class="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out text-white" aria-current="page">FAQs</li>
-        </ul>
+<section
+  class="relative table w-full py-36 bg-center bg-no-repeat bg-cover"
+  style="background-image: url('assets/images/hero/pages.jpg')"
+>
+  <div class="absolute inset-0 bg-black opacity-80"></div>
+  <div class="container relative">
+    <div class="grid grid-cols-1 pb-8 text-center mt-10">
+      <h3
+        class="text-4xl leading-normal tracking-wider font-semibold text-white"
+      >
+        Frequently Asked Questions
+      </h3>
     </div>
+    <!--end grid-->
+  </div>
+  <!--end container-->
+
+  <div class="text-center z-10 bottom-5 start-0 end-0">
+    <ul class="tracking-[0.5px] mb-0 inline-block">
+      <li
+        class="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out text-white/50 hover:text-white"
+      >
+        <a routerLink="/">Cartzio</a>
+      </li>
+      <li
+        class="inline-block text-base text-white/50 mx-0.5 ltr:rotate-0 rtl:rotate-180"
+      >
+        <i class="mdi mdi-chevron-right"></i>
+      </li>
+      <li
+        class="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out text-white/50 hover:text-white"
+      >
+        <a routerLink="/helpcenter">Helpcenter</a>
+      </li>
+      <li
+        class="inline-block text-base text-white/50 mx-0.5 ltr:rotate-0 rtl:rotate-180"
+      >
+        <i class="mdi mdi-chevron-right"></i>
+      </li>
+      <li
+        class="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out text-white"
+        aria-current="page"
+      >
+        FAQs
+      </li>
+    </ul>
+  </div>
 </section>
-<section class="relative md:py-24 py-16" >
-    <div class="container relative">
-        <div class="grid grid-cols-1 gap-6">
-
-            <div class="md:w-3/4 w-full mx-auto">
-                <div id="tech">
-                    <h5 class="text-2xl font-semibold">Buying Product</h5>
-                    <div class="mt-6">
-                        <div *ngFor="let item of faqData" class="relative shadow dark:shadow-gray-800 rounded-md overflow-hidden first:mt-0 mt-4">
-                            <h2 class="text-base font-semibold" id="accordion-collapse-heading-1">
-                                <button type="button" class="flex justify-between items-center p-5 w-full font-medium text-start" [ngClass]="activeTab === item.id ? 'bg-gray-50 dark:bg-slate-800 text-orange-500' : '' " (click)="onTabClick(item.id)">
-                                    <span>{{item.title}}</span>
-                                    <svg data-accordion-icon class="size-4 shrink-0" [ngClass]="activeTab === item.id ? 'rotate-180' : ''" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                                    </svg>
-                                </button>
-                            </h2>
-                            <div [ngClass]="activeTab === item.id ? '' : 'hidden'">
-                                <div class="p-5">
-                                    <p class="text-slate-400 dark:text-gray-400">{{item.desc}}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<section class="relative md:py-24 py-16">
+  <div class="container relative">
+    <div class="grid grid-cols-1 gap-6">
+      <div class="md:w-3/4 w-full mx-auto">
+        <div id="tech">
+          <h5 class="text-2xl font-semibold">Buying Product</h5>
+          <div class="mt-6">
+            <div
+              *ngFor="let item of faqData"
+              class="relative shadow dark:shadow-gray-800 rounded-md overflow-hidden first:mt-0 mt-4"
+            >
+              <h2
+                class="text-base font-semibold"
+                id="accordion-collapse-heading-1"
+              >
+                <button
+                  type="button"
+                  class="flex justify-between items-center p-5 w-full font-medium text-start"
+                  [ngClass]="
+                    activeTab === item.id
+                      ? 'bg-gray-50 dark:bg-slate-800 text-orange-500'
+                      : ''
+                  "
+                  (click)="onTabClick(item.id)"
+                >
+                  <span>{{ item.title }}</span>
+                  <svg
+                    data-accordion-icon
+                    class="size-4 shrink-0"
+                    [ngClass]="activeTab === item.id ? 'rotate-180' : ''"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                </button>
+              </h2>
+              <div [ngClass]="activeTab === item.id ? '' : 'hidden'">
+                <div class="p-5">
+                  <p class="text-slate-400 dark:text-gray-400">
+                    {{ item.desc }}
+                  </p>
                 </div>
-
-                <div id="general" class="mt-8">
-                    <h5 class="text-2xl font-semibold">General Questions</h5>
-
-                    <div class="mt-6">
-                        <div *ngFor="let item of faqData" class="relative shadow dark:shadow-gray-800 rounded-md overflow-hidden first:mt-0 mt-4">
-                            <h2 class="text-base font-semibold" id="accordion-collapse-heading-1">
-                                <button type="button" class="flex justify-between items-center p-5 w-full font-medium text-start" [ngClass]="activeTab2 === item.id ? 'bg-gray-50 dark:bg-slate-800 text-orange-500' : '' " (click)="onTabClick2(item.id)">
-                                    <span>{{item.title}}</span>
-                                    <svg data-accordion-icon class="size-4 shrink-0" [ngClass]="activeTab2 === item.id ? 'rotate-180' : ''" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                                    </svg>
-                                </button>
-                            </h2>
-                            <div [ngClass]="activeTab2 === item.id ? '' : 'hidden'">
-                                <div class="p-5">
-                                    <p class="text-slate-400 dark:text-gray-400">{{item.desc}}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="payment" class="mt-8">
-                    <h5 class="text-2xl font-semibold">Payments Questions</h5>
-
-                    <div class="mt-6">
-                        <div *ngFor="let item of faqData" class="relative shadow dark:shadow-gray-800 rounded-md overflow-hidden first:mt-0 mt-4">
-                            <h2 class="text-base font-semibold" id="accordion-collapse-heading-1">
-                                <button type="button" class="flex justify-between items-center p-5 w-full font-medium text-start" [ngClass]="activeTab3 === item.id ? 'bg-gray-50 dark:bg-slate-800 text-orange-500' : '' " (click)="onTabClick3(item.id)">
-                                    <span>{{item.title}}</span>
-                                    <svg data-accordion-icon class="size-4 shrink-0" [ngClass]="activeTab3 === item.id ? 'rotate-180' : ''" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                                    </svg>
-                                </button>
-                            </h2>
-                            <div [ngClass]="activeTab3 === item.id ? '' : 'hidden'">
-                                <div class="p-5">
-                                    <p class="text-slate-400 dark:text-gray-400">{{item.desc}}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="support" class="mt-8">
-                    <h5 class="text-2xl font-semibold">Support Questions</h5>
-
-                    <div class="mt-6">
-                        <div *ngFor="let item of faqData" class="relative shadow dark:shadow-gray-800 rounded-md overflow-hidden first:mt-0 mt-4">
-                            <h2 class="text-base font-semibold" id="accordion-collapse-heading-1">
-                                <button type="button" class="flex justify-between items-center p-5 w-full font-medium text-start" [ngClass]="activeTab4 === item.id ? 'bg-gray-50 dark:bg-slate-800 text-orange-500' : '' " (click)="onTabClick4(item.id)">
-                                    <span>{{item.title}}</span>
-                                    <svg data-accordion-icon class="size-4 shrink-0" [ngClass]="activeTab4 === item.id ? 'rotate-180' : ''" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                                    </svg>
-                                </button>
-                            </h2>
-                            <div [ngClass]="activeTab4 === item.id ? '' : 'hidden'">
-                                <div class="p-5">
-                                    <p class="text-slate-400 dark:text-gray-400">{{item.desc}}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
-        </div><!--end grid-->
-    </div><!--end container-->
+          </div>
+        </div>
 
-   <app-get-in-touch></app-get-in-touch>
+        <div id="general" class="mt-8">
+          <h5 class="text-2xl font-semibold">General Questions</h5>
+
+          <div class="mt-6">
+            <div
+              *ngFor="let item of faqData"
+              class="relative shadow dark:shadow-gray-800 rounded-md overflow-hidden first:mt-0 mt-4"
+            >
+              <h2
+                class="text-base font-semibold"
+                id="accordion-collapse-heading-1"
+              >
+                <button
+                  type="button"
+                  class="flex justify-between items-center p-5 w-full font-medium text-start"
+                  [ngClass]="
+                    activeTab2 === item.id
+                      ? 'bg-gray-50 dark:bg-slate-800 text-orange-500'
+                      : ''
+                  "
+                  (click)="onTabClick2(item.id)"
+                >
+                  <span>{{ item.title }}</span>
+                  <svg
+                    data-accordion-icon
+                    class="size-4 shrink-0"
+                    [ngClass]="activeTab2 === item.id ? 'rotate-180' : ''"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                </button>
+              </h2>
+              <div [ngClass]="activeTab2 === item.id ? '' : 'hidden'">
+                <div class="p-5">
+                  <p class="text-slate-400 dark:text-gray-400">
+                    {{ item.desc }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="payment" class="mt-8">
+          <h5 class="text-2xl font-semibold">Payments Questions</h5>
+
+          <div class="mt-6">
+            <div
+              *ngFor="let item of faqData"
+              class="relative shadow dark:shadow-gray-800 rounded-md overflow-hidden first:mt-0 mt-4"
+            >
+              <h2
+                class="text-base font-semibold"
+                id="accordion-collapse-heading-1"
+              >
+                <button
+                  type="button"
+                  class="flex justify-between items-center p-5 w-full font-medium text-start"
+                  [ngClass]="
+                    activeTab3 === item.id
+                      ? 'bg-gray-50 dark:bg-slate-800 text-orange-500'
+                      : ''
+                  "
+                  (click)="onTabClick3(item.id)"
+                >
+                  <span>{{ item.title }}</span>
+                  <svg
+                    data-accordion-icon
+                    class="size-4 shrink-0"
+                    [ngClass]="activeTab3 === item.id ? 'rotate-180' : ''"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                </button>
+              </h2>
+              <div [ngClass]="activeTab3 === item.id ? '' : 'hidden'">
+                <div class="p-5">
+                  <p class="text-slate-400 dark:text-gray-400">
+                    {{ item.desc }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="support" class="mt-8">
+          <h5 class="text-2xl font-semibold">Support Questions</h5>
+
+          <div class="mt-6">
+            <div
+              *ngFor="let item of faqData"
+              class="relative shadow dark:shadow-gray-800 rounded-md overflow-hidden first:mt-0 mt-4"
+            >
+              <h2
+                class="text-base font-semibold"
+                id="accordion-collapse-heading-1"
+              >
+                <button
+                  type="button"
+                  class="flex justify-between items-center p-5 w-full font-medium text-start"
+                  [ngClass]="
+                    activeTab4 === item.id
+                      ? 'bg-gray-50 dark:bg-slate-800 text-orange-500'
+                      : ''
+                  "
+                  (click)="onTabClick4(item.id)"
+                >
+                  <span>{{ item.title }}</span>
+                  <svg
+                    data-accordion-icon
+                    class="size-4 shrink-0"
+                    [ngClass]="activeTab4 === item.id ? 'rotate-180' : ''"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                </button>
+              </h2>
+              <div [ngClass]="activeTab4 === item.id ? '' : 'hidden'">
+                <div class="p-5">
+                  <p class="text-slate-400 dark:text-gray-400">
+                    {{ item.desc }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--end grid-->
+  </div>
+  <!--end container-->
+
+  <app-get-in-touch></app-get-in-touch>
 </section>
